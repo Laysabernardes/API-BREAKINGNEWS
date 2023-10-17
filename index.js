@@ -7,9 +7,13 @@ ESTA É UMA VERSÃO ANTIGA DO JS, FAZ A MESMA COISA QUE ESTA ABAIXO E ES MODULE
 import express from "express";
 import connectDatabase from "./src/database/db.js";
 import userRoute from "./src/routes/user.route.js";
+import dotenv from "dotenv";
+dotenv.config();//para configurar variavies globais 
+
 
 const app = express()
-const port = 3000;
+const port = process.env.PORT || 3000;
+//process.env.PORT -> indicando a porta no servidor 
 
 connectDatabase();
 

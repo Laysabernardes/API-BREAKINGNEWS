@@ -3,8 +3,8 @@ import mongoose from "mongoose";
 const connetcDatabase = () => {
     console.log("Wait connecting to the databse");
 
-    mongoose.connect(
-        "mongodb+srv://laysabernardes:teste123@cluster0.dcvgmve.mongodb.net/", { useNewUrlParser: true, useUnifiedTopology: true }
+    //process.env.MONGODB_URI é uma variavel global .env
+    mongoose.connect( process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }
 
     ).then(() => console.log("MongoDB Atlas Connected")).catch((error) => console.log(error));
 };
