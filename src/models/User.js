@@ -1,9 +1,10 @@
-import mongoose from 'mongoose';
+//Models é oque realmente faz se conectar com o BD
+import mongoose from 'mongoose'; //Biblioteca Node.js
 import bcrypt from "bcryptjs"; //para criptografar as senhas
 
 //Schema é uma metodo do mongoose
 //nesse comando esta verificando cada campo so que no campo
-// 2 vericação, 1 foi no use.cotroller.js
+// 2º vericação a 1º foi no use.cotroller.js
 const UserSchema = new mongoose.Schema({
     name:{
         type: String,
@@ -34,6 +35,8 @@ const UserSchema = new mongoose.Schema({
     }
 })
 
+//Comando para cripstografar a password
+//Esse 10 indica que var ter 10 saltos de criptografia
 UserSchema.pre("save", async function (next) {
     this.password = await bcrypt.hash(this.password, 10);
     next();

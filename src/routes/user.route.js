@@ -1,10 +1,10 @@
-import express from "express";
+import {Router} from "express";
 //comando que permite criar rotas 
 //É como criar um objeto, e passar para o route todos os comando do app.(express)
 import userController from "../controllers/use.controller.js";
 import{validId, validUser} from "../middlewares/global.middlewares.js";
 
-const router = express.Router();
+const router = Router();
 
 router.post("/", userController.create);
 router.get("/", userController.findAll);
