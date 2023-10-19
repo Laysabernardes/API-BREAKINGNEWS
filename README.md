@@ -25,8 +25,8 @@ Este projeto foi desenvolvido com base nas aulas do canal [Thi Code no YouTube](
 - `routes`: Define as rotas para os recursos do aplicativo.
 - `middlewares`: Armazena funções de middleware personalizadas.
 - `services`: Contém serviços para interagir com o banco de dados e fornecer funcionalidades específicas.
-- `views`: Armazena arquivos de visualização (se aplicável).
-<!-- `public`: Armazena recursos estáticos, como CSS, imagens e JavaScript.
+<!-- `views`: Armazena arquivos de visualização (se aplicável).
+- `public`: Armazena recursos estáticos, como CSS, imagens e JavaScript.
 - `config`: Contém configurações e variáveis de ambiente.-->
 - `index.js`: Ponto de entrada do aplicativo.
 
