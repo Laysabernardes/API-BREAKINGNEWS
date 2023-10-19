@@ -1,9 +1,15 @@
-//O service é o resposavél pela comunicação com BD
 import User from "../models/User.js";
+    // Importa o modelo "User" definido no arquivo "../models/User.js".
 
-//Fazendo uma verificação no BD de um email QUE É UNICO nesse BD!
-//({email: email}) 1º é oque busca 2ºoque estou mandando para comparar
-//.select("+password")) é usado para SOMENTE NESSE CASO retornar a senha tb.
-const loginService = (email) => User.findOne({ email: email}).select("+password");
+    // A função "loginService" verifica se há um usuário no banco de dados com um determinado endereço de e-mail.
+    // Ela recebe o e-mail como parâmetro.
+const loginService = (email) => {
+    // Usa o método "findOne" do Mongoose para buscar um documento na coleção "User" onde o campo "email" seja igual ao e-mail passado como parâmetro.
+    return User.findOne({ email: email })
+        
+    .select("+password");
+    // O método ".select("+password") é usado para incluir o campo "password" na resposta.
+};
 
 export { loginService };
+    // Exporta a função "loginService" para que ela possa ser usada em outros módulos.
