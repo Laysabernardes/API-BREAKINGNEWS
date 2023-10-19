@@ -1,13 +1,12 @@
 import mongoose from"mongoose";
-import userService from "../services/user.service.js";//essa variavel ta no use.crontrolles.js
+import userService from "../services/user.service.js";
 
 export const validId = (req, res, next) => {
     try {
         const id = req.params.id;
 
-        //esse codigo é um padrão do mongoose para testar id se é valido
         if (!mongoose.Types.ObjectId.isValid(id)) {
-            return res.status(400).send({ message: "Invalid ID" });
+            return res.status(400).send({ message: "ID Invalido" });
         }
         next();
     } catch (err) {
@@ -21,7 +20,7 @@ export const validUser = async (req, res, next) => {
         const user = await userService.findByIdService(id);
 
         if (!user) {
-            return res.status(400).send({ message: "User not found" });
+            return res.status(400).send({ message: "Usuário não encontrado" });
         }
 
         req.id = id;

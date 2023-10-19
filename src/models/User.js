@@ -1,9 +1,6 @@
 import mongoose from 'mongoose';
-import bcrypt from "bcryptjs"; //para criptografar as senhas
+import bcrypt from "bcryptjs";
 
-//Schema é uma metodo do mongoose
-//nesse comando esta verificando cada campo so que no campo
-// 2 vericação, 1 foi no use.cotroller.js
 const UserSchema = new mongoose.Schema({
     name:{
         type: String,
@@ -16,7 +13,7 @@ const UserSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        unique: true , //para cada email ser unico
+        unique: true , 
         lowercase:true,
     },
     password: {

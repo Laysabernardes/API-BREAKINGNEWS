@@ -1,13 +1,9 @@
 import mongoose from "mongoose";
 
 const connetcDatabase = () => {
-    console.log("Wait connecting to the databse");
+    console.log("Aguarde enquanto a conexão com o banco de dados é estabelecida");
 
-    mongoose.connect(
-        "mongodb+srv://laysabernardes:teste123@cluster0.dcvgmve.mongodb.net/", { useNewUrlParser: true, useUnifiedTopology: true }
-
-    ).then(() => console.log("MongoDB Atlas Connected")).catch((error) => console.log(error));
+    mongoose.connect( process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => console.log("Conexão com o MongoDB Atlas estabelecida")).catch((error) => console.log(error));
 };
 
-//module.exports = connetcDatabase;
 export default connetcDatabase;
