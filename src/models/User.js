@@ -36,8 +36,7 @@ const UserSchema = new mongoose.Schema({
 })
 
 // Middleware "pre" do Mongoose que é executado antes de salvar um documento no banco de dados.
-UserSchema.pre("save", async function (next) {
-    this.password = await bcrypt.hash(this.password, 10);
+UserSchema.pre("save", async function (next){this.password = await bcrypt.hash(this.password, 10);
     // Este trecho de código criptografa a senha do usuário usando o bcrypt antes de salvar no banco de dados.
     //O número 10 representa a quantidade de recursos computacionais que o sistema usa para tornar a senha segura, tornando a criptografia mais forte, mas potencialmente mais lenta.
     next();
