@@ -9,9 +9,6 @@ import jwt from "jsonwebtoken";
 const loginService = (email) => User.findOne({ email: email}).select("+password");
 
 //para guardar a sessão do usuario - JWT
-const generateToken = (id) => {
-    return jwt.sign({ id: id }, process.env.SECRET_JWT, { expiresIn: 86400 });
-  };
-  
+const generateToken = (id) => jwt.sign({ id: id }, process.env.SECRET_JWT, { expiresIn: 86400 });
 
 export { loginService, generateToken};
