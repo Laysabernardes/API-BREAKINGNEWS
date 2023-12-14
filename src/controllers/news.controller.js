@@ -1,8 +1,8 @@
-import { createService, findAllService } from "../services/news.service.js"
+import { createService, findAllService } from "../services/news.service.js";
 
 const create = async (req, res) => {
     try {
-        const {title, text, banner} = req.body;
+        const { title, text, banner } = req.body;
 
         if(!title || !text || !banner){
             res.status(400).send({ message: "Adicione todos os elementos!" }); 
@@ -12,18 +12,21 @@ const create = async (req, res) => {
             title,
             text,
             banner,
-            id: "objectidfake1",
+            user: { _id: "657a6708757a847aaf912cfb" },
         });
 
-        res.send(201);
+        res.status(201).send();
     } catch (err) {
         res.status(500).send({ message: err.mensage })
     }
-
 }
-const findAll = (req, res) => {
-    const news = [];
-    res.send(news)
+const findAll = async (req, res) => {
+    const news = await findAllService();
+
+    if (news.length === 0) {
+        return res.status(400).send({ message: "Não há postagens registradas." });
+    }
+    res.send(news);
 }
 
-export default { create, findAll };
+export { create, findAll };

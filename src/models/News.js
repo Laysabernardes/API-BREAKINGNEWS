@@ -9,13 +9,13 @@ const NewsSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
-    banenr: {
+    banner: {
         type: String,
         require: true,
     },
     createdAT: {
         type: Date,
-        defaut: Date.now(), //Default é para pegar o valor padrão, e date.now pega a hora atual
+        default: Date.now(), //Default é para pegar o valor padrão, e date.now pega a hora atual
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
