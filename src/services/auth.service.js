@@ -8,9 +8,9 @@ import jwt from "jsonwebtoken";
 //.select("+password")) é usado para SOMENTE NESSE CASO retornar a senha tb.
 const loginService = (email) => User.findOne({ email: email}).select("+password");
 
-//para guardar a sessão JWT
+//para guardar a sessão do usuario - JWT
 const generateToken = (id) => {
-    return jwt.sign({ id }, process.env.SECRET_JWT, { expiresIn: 86400 });
+    return jwt.sign({ id: id }, process.env.SECRET_JWT, { expiresIn: 86400 });
   };
   
 
