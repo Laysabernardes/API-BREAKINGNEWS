@@ -12,7 +12,7 @@ const create = async (req, res) => {
             title,
             text,
             banner,
-            user: { _id: "657a6708757a847aaf912cfb" },
+            user: req.userId,
         });
 
         res.status(201).send();
