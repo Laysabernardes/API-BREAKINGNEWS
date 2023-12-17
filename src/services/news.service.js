@@ -8,8 +8,11 @@ const findAllService = (offset, limit) => News.find().sort({_id: -1}).skip(offse
 const  countNews =  () => News.countDocuments();
 //countDocuments -> mongoose 
 
+const topNewsService = () => News.findOne().sort({_id: -1}).populate("user");
+
 export {
     createService,
     findAllService,
-    countNews
+    countNews,
+    topNewsService
 };
