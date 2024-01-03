@@ -8,5 +8,6 @@ router.post("/", authMiddleware ,create);
 router.get("/", findAll);
 router.get("/top", topNews);
 router.get("/:id", findById);
+router.get("/search", searchByTitle);
 
 export default router;

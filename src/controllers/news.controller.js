@@ -122,5 +122,8 @@ export const findById = async (req, res) => {
     } catch (err) {
         res.status(500).send({ message: err.mensage })
     }
-}
+};
+export const searchByTtitle =  async (req, res)=>{
+
+};
 
