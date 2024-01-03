@@ -13,7 +13,8 @@ export const topNewsService = () => News.findOne().sort({_id: -1}).populate("use
 export const findByIdService = (id) =>News.findById(id).populate("user"); 
 
 export const searchByTtitle = (title) => News.find({
-    //para fazer um comando especifico do MONGOSB usa o $ 
+    //para fazer um comando especifico do MONGODB usa o $ 
+    
     //esse i em option é para indicar que é não é case-sentive, ou seja vai fazer uma busca independente de estar com letra mausculas ou minuscula. 
     // o regex indica que ele pode mandar o titlwe completo ou partes dele 
     //sort para trazer do banco em ordem decrescente
